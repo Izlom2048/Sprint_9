@@ -5,6 +5,4 @@ __pycache__/
 venv/
 .idea/
 .vscode/
-allure-results/
-allure-report/
 *.log
