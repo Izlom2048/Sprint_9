@@ -7,11 +7,12 @@ services:
     ports:
       - "4444:4444"
     command:
-      [
-        "-conf", "/etc/selenoid/browsers.json",
-        "-limit", "4",
-        "-container-network", "selenoid"
-      ]
+      - "-conf"
+      - "/etc/selenoid/browsers.json"
+      - "-limit"
+      - "4"
+      - "-container-network"
+      - "selenoid"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./selenoid/browsers.json:/etc/selenoid/browsers.json:ro
