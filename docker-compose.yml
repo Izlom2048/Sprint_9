@@ -1,0 +1,26 @@
+version: "3.9"
+
+services:
+  selenoid:
+    image: aerokube/selenoid:latest-release
+    container_name: selenoid
+    ports:
+      - "4444:4444"
+    command: ["-conf", "/etc/selenoid/browsers.json", "-limit", "4"]
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./selenoid/browsers.json:/etc/selenoid/browsers.json:ro
+
+  tests:
+    build: .
+    container_name: sprint_9_tests
+    depends_on:
+      - selenoid
+    environment:
+      BASE_URL: https://foodgram-frontend-1.prakticum-team.ru/
+      SELENOID_URL: http://selenoid:4444/wd/hub
+      BROWSER_NAME: chrome
+      BROWSER_VERSION: "128.0"
+    volumes:
+      - ./allure-results:/app/allure-results
+    command: pytest tests --alluredir=allure-results
