@@ -18,5 +18,5 @@ RECIPE_DATA = {
     "ingredient_name": "лук белый",
     "ingredient_amount": "100",
     "cooking_time": "15",
-    "description": "Описание рецепта из автотеста Selenium",
+    "description": "Описание рецепта",
 }

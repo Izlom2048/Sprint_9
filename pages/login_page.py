@@ -16,8 +16,8 @@ class LoginPage(BasePage):
         return self.is_visible(LoginPageLocators.LOGIN_FORM)
 
     @allure.step("Заполнить форму авторизации")
-    def fill_login_form(self, email: str, password: str):
-        self.type(LoginPageLocators.EMAIL_INPUT, email)
+    def fill_login_form(self, username: str, password: str):
+        self.type(LoginPageLocators.EMAIL_INPUT, username)
         self.type(LoginPageLocators.PASSWORD_INPUT, password)
 
     @allure.step("Отправить форму авторизации")

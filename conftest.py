@@ -73,7 +73,7 @@ def authorized_user(driver, registered_user):
     main_page.click_login_button()
 
     login_page.fill_login_form(
-        registered_user["email"],
+        registered_user["username"],
         registered_user["password"],
     )
     login_page.submit_login()
